@@ -1,13 +1,12 @@
-
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
-const courseRoutes = require('./routes/courses')
-const enrollmentRoutes = require('./routes/enrollment')
-const attendanceRoutes = require('./routes/attendance')
-
+const courseRoutes = require('./routes/courses');
+const enrollmentRoutes = require('./routes/enrollment');
+const attendanceRoutes = require('./routes/attendance');
+const qrRoutes = require('./routes/qr');
 
 dotenv.config();
 
@@ -24,13 +23,12 @@ mongoose
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/courses', courseRoutes);
-app.use('/enrollment', enrollmentRoutes)
-app.use('/attendance', attendanceRoutes)
+app.use('/enrollment', enrollmentRoutes);
+app.use('/attendance', attendanceRoutes);
+app.use('/qr', qrRoutes);
 
 // Test endpoint
 app.get('/hello', (req, res) => res.json({ message: 'Hello World' }));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-//681b633629f106132c4b72a4
